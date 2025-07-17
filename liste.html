@@ -2,86 +2,44 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Liste des Nombres – Méthode GPS Goldbach</title>
+  <title>Liste des nombres disponibles</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 800px;
+      max-width: 700px;
       margin: auto;
       padding: 20px;
       background-color: #f9f9f9;
-      color: #333;
     }
     h1 {
-      color: #c40000;
+      color: #b30000;
     }
     ul {
-      line-height: 1.6;
-    }
-    code {
-      background-color: #eee;
-      padding: 2px 4px;
-      border-radius: 3px;
+      line-height: 1.8;
     }
   </style>
 </head>
 <body>
-  <h1>Liste des nombres disponibles (10⁹ à 10¹⁶)</h1>
 
-  <h2><code>pairs_9.json</code></h2>
+  <h1>📄 Intervalles disponibles (p + q = E)</h1>
+
+  <p>Le site permet de vérifier des décompositions de Goldbach pour les nombres pairs <strong>E</strong> situés dans les intervalles suivants :</p>
+
   <ul>
-    <li>1000000000</li>
+    <li><strong>pairs_9.json</strong> → E de 10⁹ à 10⁹ + 4</li>
+    <li><strong>pairs_10.json</strong> → E de 10¹⁰ à 10¹⁰ + 19</li>
+    <li><strong>pairs_11.json</strong> → E = 10¹¹</li>
+    <li><strong>pairs_12.json</strong> → E de 10¹² à 10¹² + 19</li>
+    <li><strong>pairs_13.json</strong> → E de 10¹³ à 10¹³ + 29</li>
+    <li><strong>pairs_14.json</strong> → E de 10¹⁴ à 10¹⁴ + 29</li>
+    <li><strong>pairs_15.json</strong> → E de 10¹⁵ à 10¹⁵ + 29</li>
+    <li><strong>pairs_16.json</strong> → E de 10¹⁶ à 10¹⁶ + 29</li>
   </ul>
 
-  <h2><code>pairs_10.json</code></h2>
-  <ul>
-    <li>10000000000</li>
-    <li>10000000010</li>
-    <li>10000000020</li>
-    <li>…</li>
-  </ul>
+  <p>🔜 La suite (à partir de 10¹⁷) sera disponible dans un dépôt séparé.</p>
 
-  <h2><code>pairs_11.json</code></h2>
-  <ul>
-    <li>100000000000</li>
-  </ul>
+  <p><a href="index.html">🔙 Retour à l’accueil</a></p>
 
-  <h2><code>pairs_12.json</code></h2>
-  <ul>
-    <li>1000000000000</li>
-    <li>1000000001000</li>
-    <li>…</li>
-  </ul>
-
-  <h2><code>pairs_13.json</code></h2>
-  <ul>
-    <li>10000000000000</li>
-    <li>10000000001000</li>
-    <li>…</li>
-  </ul>
-
-  <h2><code>pairs_14.json</code></h2>
-  <ul>
-    <li>100000000000000</li>
-    <li>100000000001000</li>
-    <li>…</li>
-  </ul>
-
-  <h2><code>pairs_15.json</code></h2>
-  <ul>
-    <li>1000000000000000</li>
-    <li>1000000000010000</li>
-    <li>…</li>
-  </ul>
-
-  <h2><code>pairs_16.json</code></h2>
-  <ul>
-    <li>10000000000000000</li>
-    <li>10000000000100000</li>
-    <li>…</li>
-  </ul>
-
-  <p><em>Remarque : les points de suspension « … » indiquent qu’il existe d’autres valeurs intermédiaires dans chaque fichier.</em></p>
 </body>
 </html>
