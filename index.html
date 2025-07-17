@@ -1,78 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Décomposition Goldbach – Méthode GPS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fdfdfd;
-      padding: 20px;
-      max-width: 700px;
-      margin: auto;
-      color: #333;
-    }
-    h1 {
-      color: #b30000;
-    }
-    input, button {
-      font-size: 1em;
-      padding: 6px;
-      margin: 5px 0;
-    }
-    .result {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #666;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Décomposition Goldbach GPS</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <header>
+    <h1>🔎 Recherche de paires (p, q) telles que p + q = E</h1>
+  </header>
 
-  <h1>Décomposition Goldbach – Méthode GPS</h1>
-  <p><a href="liste.html">📄 Voir la liste des nombres disponibles</a></p>
-  <p><a href="about.html">ℹ️ À propos de ce site</a></p>
+  <main>
+    <label for="evenInput">Entrez un nombre pair E :</label>
+    <input type="text" id="evenInput" placeholder="Ex : 1000000000" />
+    <button onclick="findGoldbachPair()">Trouver (p, q)</button>
 
-  <label for="inputE">🔎 Entrez un nombre pair E :</label><br>
-  <input type="text" id="inputE" placeholder="ex: 1000000000">
-  <button onclick="chercher()">Trouver (p, q)</button>
-
-  <div class="result" id="resultat"></div>
+    <section id="result" class="result-section"></section>
+  </main>
 
   <footer>
-    © 2025 Bahbouhi Bouchaib – Méthode GPS<br>
-    Données disponibles de 10⁹ à 10¹⁶. Propriété intellectuelle respectée.
+    <p>Site créé par Bahbouhi Bouchaib · Méthode GPS · Données valides de 10⁹ à 10¹⁶</p>
   </footer>
 
-  <script>
-    async function chercher() {
-      const E = document.getElementById("inputE").value.trim();
-      const resultat = document.getElementById("resultat");
-      resultat.textContent = "⏳ Chargement...";
-
-      const exp = E.length - 1;
-      const fichier = `pairs_${exp}.json`;
-
-      try {
-        const reponse = await fetch(fichier);
-        const data = await reponse.json();
-
-        if (data[E]) {
-          const [p, q] = data[E];
-          resultat.innerHTML = `✅ ${E} = ${p} + ${q}`;
-        } else {
-          resultat.innerHTML = `❌ Nombre hors plage ou données manquantes.`;
-        }
-      } catch (e) {
-        resultat.innerHTML = `❌ Erreur de chargement des données (${fichier}).`;
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
