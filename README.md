@@ -1,28 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>About this project</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>About This Site</h1>
-  <p>This site is dedicated to verifying the strong Goldbach Conjecture for even numbers between <strong>10⁹ and 10³⁰</strong>.</p>
-  
-  <h2>Method</h2>
-  <p>For each even number E in a given range, a pair of prime numbers (p, q) is identified such that <strong>p + q = E</strong>.</p>
-  <p>The method follows a strict 3-step protocol:</p>
-  <ol>
-    <li><strong>Generation</strong> of candidate pairs using the GPS symmetry method.</li>
-    <li><strong>Verification</strong> of the primality of both p and q using reliable algorithms.</li>
-    <li><strong>Export</strong> of the validated results into structured JSON files.</li>
-  </ol>
+# Calcul des Paires de Goldbach via la Méthode GPS
 
-  <h2>Author</h2>
-  <p>This project was created by <strong>Bahbouhi Bouchaib</strong>, independent researcher in mathematics based in Nantes, France.</p>
+**Auteur :** Bahbouhi Bouchaib  
+**Statut :** Chercheur indépendant en mathématiques, basé à Nantes (France)
 
-  <h2>Note</h2>
-  <p>Only validated (p, q) pairs are included. No approximations. All data is directly usable via the interface.</p>
+---
 
-</body>
-</html>
+## 🎯 Objectif du site
+
+Ce site permet de vérifier la conjecture forte de Goldbach pour les nombres pairs allant de **10⁹ à 10¹⁶** en affichant une paire (p, q) de nombres premiers tels que :
+
+**p + q = E**, avec E un nombre pair présent dans notre base de données.
+
+Les paires (p, q) ont été prédites par la **méthode GPS** (algorithme probabiliste centré autour de E/2) et **vérifiées rigoureusement** par un test de primalité ligne par ligne.
+
+---
+
+## 🔢 Plage de validité
+
+Le site couvre les nombres pairs suivants (inclus dans les fichiers `pairs_X.json`) :
+
+- **10⁹**
+- **10¹⁰**
+- **10¹¹**
+- **10¹²**
+- **10¹³**
+- **10¹⁴**
+- **10¹⁵**
+- **10¹⁶**
+
+Chaque fichier contient 20 à 50 paires (p, q) valides. Le site recherche automatiquement dans la bonne décennie en fonction de la valeur de E.
+
+---
+
+## 🧪 Mode d’emploi
+
+1. L'utilisateur saisit un nombre pair **E** dans le champ de recherche.
+2. Le site localise le bon fichier JSON.
+3. Il vérifie si E est présent comme clé dans la base.
+4. Si oui, il affiche une paire (p, q) telle que p + q = E.
+5. Si non, il indique que le nombre est hors plage ou absent de la base.
+
+---
+
+## 🛡 Propriété intellectuelle
+
+L’algorithme GPS, les paires prédites et leur structuration en bibliothèque constituent une œuvre mathématique originale de **Bahbouhi Bouchaib**.  
+Toute reproduction ou utilisation doit citer explicitement l'auteur.
+
+---
+
+## 🔜 Prochaine étape
+
+Une extension du projet sera ouverte sur un second site dédié aux nombres **≥ 10¹⁷**, dans un nouveau dépôt GitHub. Ce second site prendra en charge les tailles critiques qui dépassent les limites techniques du navigateur et des fichiers JSON standards.
+
+---
+
+## ✉️ Contact
+
+Pour toute question ou suggestion :  
+📧 **bahbouhibouchaib524@gmail.com**
