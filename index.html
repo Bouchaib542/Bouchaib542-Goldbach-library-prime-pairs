@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recherche de paires de Goldbach</title>
+  <meta charset="UTF-8">
+  <title>Test 10¹⁷ - Goldbach</title>
 </head>
 <body>
-  <h1>🔎 Recherche de paires (p, q) telles que p + q = E</h1>
+  <h2>🔎 Recherche de paires (p, q) telles que p + q = E</h2>
+  <label>Entrez un nombre pair E :</label>
+  <input type="text" id="inputE" value="100000000000000000">
+  <button id="findButton">Trouver (p, q)</button>
+  <p id="result"></p>
 
-  <label for="input">Entrez un nombre pair E :</label>
-  <input type="text" id="input" placeholder="ex: 100000000000000000" />
-  <button id="find">Trouver (p, q)</button>
-
-  <pre id="result" style="margin-top: 20px; font-size: 1.1em; color: green;"></pre>
-
-  <!-- Inclusion du fichier JS contenant les données -->
-  <script src="pairs_17.js"></script>
-  <!-- Script principal -->
   <script src="script.js"></script>
 </body>
 </html>
