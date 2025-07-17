@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Goldbach Pairs Library</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recherche de paires de Goldbach</title>
 </head>
 <body>
-  <h1>Goldbach Pairs Lookup</h1>
-  <p>Enter an even number E (e.g. 1000000000):</p>
-  <input type="text" id="inputE" placeholder="Enter even number...">
-  <button onclick="findPair()">Find (p, q)</button>
+  <h1>🔎 Recherche de paires (p, q) telles que p + q = E</h1>
 
-  <h2>Result:</h2>
-  <pre id="resultArea">No query yet.</pre>
+  <label for="input">Entrez un nombre pair E :</label>
+  <input type="text" id="input" placeholder="ex: 100000000000000000" />
+  <button id="find">Trouver (p, q)</button>
 
+  <pre id="result" style="margin-top: 20px; font-size: 1.1em; color: green;"></pre>
+
+  <!-- Inclusion du fichier JS contenant les données -->
+  <script src="pairs_17.js"></script>
+  <!-- Script principal -->
   <script src="script.js"></script>
 </body>
 </html>
