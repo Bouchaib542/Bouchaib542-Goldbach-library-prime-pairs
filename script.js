@@ -1,22 +1,46 @@
-const goldbachData = {
-  "10": [[3, 7]],
-  "100000000000": [[49999999941, 50000000059]],
-  "1000000000": [[499999973, 500000027]],
-  "10000000000": [[4999999997, 5000000003]],
-  "1000000000000": [[499999999989, 500000000011]],
-  "10000000000000": [[4999999999997, 5000000000003]],
-  "100000000000000": [[49999999999989, 50000000000011]],
-  "1000000000000000": [[499999999999973, 500000000000027]],
-  "10000000000000000": [[4999999999999997, 5000000000000003]]
-};
+const jsonFiles = [
+  "pairs_9.json",
+  "pairs_10.json",
+  "pairs_11.json",
+  "pairs_12.json",
+  "pairs_13.json",
+  "pairs_14.json",
+  "pairs_15.json",
+  "pairs_16.json"
+];
 
-document.getElementById("find-btn").addEventListener("click", () => {
-  const E = document.getElementById("input-number").value.trim();
-  const result = document.getElementById("result");
-  if (goldbachData[E]) {
-    const [p, q] = goldbachData[E][0];
-    result.textContent = `✅ ${E} = ${p} + ${q}`;
-  } else {
-    result.textContent = "❌ Clé absente ou non supportée.";
+let goldbachData = {};
+
+async function loadAllJSON() {
+  for (const file of jsonFiles) {
+    try {
+      const response = await fetch(file);
+      if (!response.ok) throw new Error("Erreur fetch");
+      const data = await response.json();
+      Object.assign(goldbachData, data);
+    } catch (error) {
+      console.error(`Erreur chargement ${file}:`, error.message);
+    }
   }
-});
+}
+
+function findGoldbachPair() {
+  const input = document.getElementById("evenInput").value.trim();
+  const result = document.getElementById("result");
+  result.innerHTML = "";
+
+  if (!/^\d+$/.test(input)) {
+    result.innerHTML = "❌ Veuillez entrer un nombre valide.";
+    return;
+  }
+
+  if (!goldbachData[input]) {
+    result.innerHTML = "❌ Nombre hors plage ou données manquantes.";
+    return;
+  }
+
+  const [p, q] = goldbachData[input];
+  result.innerHTML = `✅ ${input} = ${p} + ${q}`;
+}
+
+window.onload = loadAllJSON;
