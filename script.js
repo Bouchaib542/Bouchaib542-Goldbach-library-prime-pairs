@@ -2,12 +2,7 @@ const input = document.getElementById("inputE");
 const resultDiv = document.getElementById("result");
 const findButton = document.getElementById("findButton");
 
-const dataFiles = [
-  "pairs_9.json", "pairs_10.json", "pairs_11.json",
-  "pairs_12.json", "pairs_13.json", "pairs_14.json",
-  "pairs_15.json", "pairs_16.json", "pairs_17.json"
-];
-
+const dataFiles = ["pairs_17.json"];
 let data = {};
 
 async function loadAllData() {
@@ -20,6 +15,8 @@ async function loadAllData() {
       console.error("Erreur de chargement :", file, e);
     }
   }
+
+  console.log("Fichiers chargés :", Object.keys(data));
 }
 
 function isValidEvenNumber(value) {
@@ -27,7 +24,7 @@ function isValidEvenNumber(value) {
 }
 
 findButton.addEventListener("click", () => {
-  const rawInput = input.value.trim().replace(/[^0-9]/g, ''); // 🛠️ Correction ici
+  const rawInput = input.value.trim().replace(/[^0-9]/g, '');
   if (!isValidEvenNumber(rawInput)) {
     resultDiv.innerHTML = "❌ Veuillez entrer un nombre pair valide.";
     return;
