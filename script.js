@@ -19,7 +19,7 @@ async function loadAllJSON() {
       const data = await response.json();
       Object.assign(goldbachData, data);
     } catch (error) {
-      console.error(`Erreur chargement ${file}:`, error.message);
+      console.error(`❌ Erreur chargement ${file}:`, error.message);
     }
   }
 }
@@ -30,11 +30,11 @@ function findGoldbachPair() {
   result.innerHTML = "";
 
   if (!/^\d+$/.test(input)) {
-    result.innerHTML = "❌ Veuillez entrer un nombre valide.";
+    result.innerHTML = "❌ Veuillez entrer un nombre pair valide.";
     return;
   }
 
-  if (!goldbachData[input]) {
+  if (!goldbachData.hasOwnProperty(input)) {
     result.innerHTML = "❌ Nombre hors plage ou données manquantes.";
     return;
   }
@@ -43,4 +43,4 @@ function findGoldbachPair() {
   result.innerHTML = `✅ ${input} = ${p} + ${q}`;
 }
 
-window.onload = loadAllJSON;
+window.addEventListener("DOMContentLoaded", loadAllJSON);
