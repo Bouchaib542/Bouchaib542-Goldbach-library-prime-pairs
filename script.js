@@ -1,31 +1,45 @@
-// Fonction principale pour chercher une paire (p, q) dans les fichiers pairs_X.json
-async function findPair() {
-  const input = document.getElementById("inputE").value.trim();
-  const E = BigInt(input);
-  const resultArea = document.getElementById("resultArea");
+document.getElementById("find").addEventListener("click", () => {
+  const input = document.getElementById("input").value.trim();
 
-  if (!/^\d+$/.test(input) || E % 2n !== 0n || E < 4n) {
-    resultArea.textContent = "❌ Please enter a valid even number ≥ 4.";
+  if (!/^\d+$/.test(input)) {
+    document.getElementById("result").innerText = "❌ Veuillez entrer un nombre entier valide.";
     return;
   }
 
-  // Déduire le bon fichier pairs_X.json
-  const exponent = E.toString().length - 1;
-  const fileName = `pairs_${exponent}.json`;
+  const E = BigInt(input);
+  const E_str = E.toString();
 
-  try {
-    const response = await fetch(fileName);
-    if (!response.ok) throw new Error("File not found");
+  let pair = null;
 
-    const data = await response.json();
-    const pair = data[E.toString()];
-
-    if (pair) {
-      resultArea.textContent = `✅ ${E} = ${pair[0]} + ${pair[1]}`;
-    } else {
-      resultArea.textContent = "⚠️ Pair not found in this file.";
-    }
-  } catch (error) {
-    resultArea.textContent = `❌ Error: ${error.message}`;
+  if (E >= 10n ** 9n && E < 10n ** 10n && typeof pairs_9 !== "undefined") {
+    pair = pairs_9[E_str];
+  } else if (E >= 10n ** 10n && E < 10n ** 11n && typeof pairs_10 !== "undefined") {
+    pair = pairs_10[E_str];
+  } else if (E >= 10n ** 11n && E < 10n ** 12n && typeof pairs_11 !== "undefined") {
+    pair = pairs_11[E_str];
+  } else if (E >= 10n ** 12n && E < 10n ** 13n && typeof pairs_12 !== "undefined") {
+    pair = pairs_12[E_str];
+  } else if (E >= 10n ** 13n && E < 10n ** 14n && typeof pairs_13 !== "undefined") {
+    pair = pairs_13[E_str];
+  } else if (E >= 10n ** 14n && E < 10n ** 15n && typeof pairs_14 !== "undefined") {
+    pair = pairs_14[E_str];
+  } else if (E >= 10n ** 15n && E < 10n ** 16n && typeof pairs_15 !== "undefined") {
+    pair = pairs_15[E_str];
+  } else if (E >= 10n ** 16n && E < 10n ** 17n && typeof pairs_16 !== "undefined") {
+    pair = pairs_16[E_str];
+  } else if (E >= 10n ** 17n && E < 10n ** 18n && typeof pairs_17 !== "undefined") {
+    pair = pairs_17[E_str];
+  } else if (E >= 10n ** 18n && E < 10n ** 19n && typeof pairs_18 !== "undefined") {
+    pair = pairs_18[E_str];
+  } else {
+    document.getElementById("result").innerText = "❌ Nombre en dehors de la plage disponible.";
+    return;
   }
-}
+
+  if (pair) {
+    const [p, q] = pair;
+    document.getElementById("result").innerText = `✅ ${E} = ${p} + ${q}`;
+  } else {
+    document.getElementById("result").innerText = "❌ Aucune paire trouvée pour ce nombre.";
+  }
+});
