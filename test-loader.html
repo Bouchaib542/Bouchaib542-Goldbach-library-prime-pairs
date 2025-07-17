@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Chargement JSON Goldbach</title>
+</head>
+<body>
+  <h2>✅ Test de chargement des fichiers JSON</h2>
+  <pre id="log" style="background:#f0f0f0;padding:10px;"></pre>
+
+  <script>
+    const filesToCheck = {
+      "pairs_9.json": "1000000000",
+      "pairs_10.json": "10000000000",
+      "pairs_11.json": "100000000000",
+      "pairs_12.json": "1000000000000",
+      "pairs_13.json": "10000000000000",
+      "pairs_14.json": "100000000000000",
+      "pairs_15.json": "1000000000000000",
+      "pairs_16.json": "10000000000000000",
+      "pairs_17.json": "100000000000000000"
+    };
+
+    const logEl = document.getElementById("log");
+
+    function log(msg) {
+      logEl.textContent += msg + "\n";
+    }
+
+    async function testFiles() {
+      for (const [file, key] of Object.entries(filesToCheck)) {
+        try {
+          const resp = await fetch(file);
+          if (!resp.ok) {
+            log(`❌ ${file} - Erreur HTTP: ${resp.status}`);
+            continue;
+          }
+          const json = await resp.json();
+          log(`✔ ${file} chargé, total clefs: ${Object.keys(json).length}`);
+          log(`    - Clé testée: "${key}" → ${key in json ? "✅ OK" : "❌ ABSENT"}`);
+        } catch (e) {
+          log(`❌ ${file} - erreur parse ou fetch: ${e}`);
+        }
+      }
+    }
+
+    testFiles();
+  </script>
+</body>
+</html>
