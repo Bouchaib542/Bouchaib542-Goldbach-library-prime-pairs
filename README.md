@@ -1,61 +1,42 @@
-# Calcul des Paires de Goldbach via la Méthode GPS
+# 📘 Décomposition de Goldbach par la méthode GPS (10⁹ à 10¹⁶)
 
-**Auteur :** Bahbouhi Bouchaib  
-**Statut :** Chercheur indépendant en mathématiques, basé à Nantes (France)
+Ce site permet de décomposer un nombre pair E très grand (entre 10⁹ et 10¹⁶) en une paire de nombres premiers (p, q) tels que :
 
----
+> p + q = E
 
-## 🎯 Objectif du site
-
-Ce site permet de vérifier la conjecture forte de Goldbach pour les nombres pairs allant de **10⁹ à 10¹⁶** en affichant une paire (p, q) de nombres premiers tels que :
-
-**p + q = E**, avec E un nombre pair présent dans notre base de données.
-
-Les paires (p, q) ont été prédites par la **méthode GPS** (algorithme probabiliste centré autour de E/2) et **vérifiées rigoureusement** par un test de primalité ligne par ligne.
+✅ Tous les couples (p, q) sont rigoureusement vérifiés :  
+- p et q sont **tous deux premiers**.  
+- Les données proviennent d’une méthode algorithmique guidée appelée **méthode GPS**.  
 
 ---
 
-## 🔢 Plage de validité
+## 🔎 Nombres disponibles
 
-Le site couvre les nombres pairs suivants (inclus dans les fichiers `pairs_X.json`) :
+Les nombres pairs E pour lesquels des paires (p, q) sont déjà stockées sont répartis par fichier :
 
-- **10⁹**
-- **10¹⁰**
-- **10¹¹**
-- **10¹²**
-- **10¹³**
-- **10¹⁴**
-- **10¹⁵**
-- **10¹⁶**
+- `pairs_9.json` → E de **10⁹** à **10⁹ + 4**
+- `pairs_10.json` → E de **10¹⁰** à **10¹⁰ + 19**
+- `pairs_11.json` → E = **10¹¹**
+- `pairs_12.json` → E de **10¹²** à **10¹² + 19**
+- `pairs_13.json` → E de **10¹³** à **10¹³ + 29**
+- `pairs_14.json` → E de **10¹⁴** à **10¹⁴ + 29**
+- `pairs_15.json` → E de **10¹⁵** à **10¹⁵ + 29**
+- `pairs_16.json` → E de **10¹⁶** à **10¹⁶ + 29**
 
-Chaque fichier contient 20 à 50 paires (p, q) valides. Le site recherche automatiquement dans la bonne décennie en fonction de la valeur de E.
-
----
-
-## 🧪 Mode d’emploi
-
-1. L'utilisateur saisit un nombre pair **E** dans le champ de recherche.
-2. Le site localise le bon fichier JSON.
-3. Il vérifie si E est présent comme clé dans la base.
-4. Si oui, il affiche une paire (p, q) telle que p + q = E.
-5. Si non, il indique que le nombre est hors plage ou absent de la base.
+Les fichiers JSON sont automatiquement chargés et permettent une réponse immédiate à l’utilisateur.
 
 ---
 
-## 🛡 Propriété intellectuelle
+## 📌 À propos
 
-L’algorithme GPS, les paires prédites et leur structuration en bibliothèque constituent une œuvre mathématique originale de **Bahbouhi Bouchaib**.  
-Toute reproduction ou utilisation doit citer explicitement l'auteur.
-
----
-
-## 🔜 Prochaine étape
-
-Une extension du projet sera ouverte sur un second site dédié aux nombres **≥ 10¹⁷**, dans un nouveau dépôt GitHub. Ce second site prendra en charge les tailles critiques qui dépassent les limites techniques du navigateur et des fichiers JSON standards.
+- 🔧 **Méthode utilisée** : prédiction GPS de la paire (p, q) par écart optimal.
+- 👤 **Auteur** : Bahbouhi Bouchaib, chercheur indépendant (France).
+- 🔒 **Propriété intellectuelle** : méthode conçue et vérifiée par l’auteur.
+- 🚧 Un second dépôt est prévu pour les valeurs **E ≥ 10¹⁷**.
 
 ---
 
-## ✉️ Contact
+## 🌐 Utilisation
 
-Pour toute question ou suggestion :  
-📧 **bahbouhibouchaib524@gmail.com**
+Accéder au site ici :  
+👉 [bouchaib542.github.io/Bouchaib542-Goldbach-library-prime-pairs](https://bouchaib542.github.io/Bouchaib542-Goldbach-library-prime-pairs/)
